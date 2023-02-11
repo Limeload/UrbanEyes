@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: urban_eyes_production
-  username: urban_eyes
-  password: <%= ENV["URBAN_EYES_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
