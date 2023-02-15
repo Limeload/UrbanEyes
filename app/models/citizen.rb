@@ -5,6 +5,7 @@ class Citizen < ApplicationRecord
   validates :username, length: { minimum: 6, maximum: 20 }
   validates :email, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP}
+  has_secure_password
   validates :password, confirmation: true
   validates :password, length: { minimum: 8 }
 end

@@ -6,20 +6,21 @@ class ServiceRequest < ApplicationRecord
   validates :title, length: { in: 3..100 }
   validates :title, uniqueness: true
   validates :description, length: { minimum: 10 }
-  validates :service_id, numbericality: { only_integer: true }
-  validate :service_present
-  validates :status, inclusion: { in: ['open', 'closed', 'in_progress'] }
+  validates :service_id, presence: true
+  # validate :service_present
+  # validates :status, inclusion: { in: ['open', 'closed', 'in_progress'] }
+  validates :status, presence: true
   validates :citizen_id, presence: true
-  validate :validate_citizen
+  # validate :validate_citizen
 
-  private
-  def service_present
-    unless Service.exists?(service_id)
-      errors.add(:service_id, "Service #{service_id} does not exist")
-  end
+  # private
+  # def service_present
+  #   unless Service.exists?(service_id)
+  #     errors.add(:service_id, "Service #{service_id} does not exist")
+  # end
 
-  def validate_citizen
-    citizen = Citizen.find_by(id: self.citizen_id)
-    errors.add(:citizen_id, "citizen #{citizen_id} not found") unless citizen
-  end
+  # def validate_citizen
+  #   citizen = Citizen.find_by(id: self.citizen_id)
+  #   errors.add(:citizen_id, "citizen #{citizen_id} not found") unless citizen
+  # end
 end

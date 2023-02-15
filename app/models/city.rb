@@ -4,6 +4,6 @@ class City < ApplicationRecord
   validates :name, presence: true
   validates :location, presence: true
   validates :location , format: { with: /\A-?\d{1,3}\.\d{1,6},-?\d{1,3}\.\d{1,6}\z/ }
-  geocoded_by :location
-  after_validation :geocode
+  # geocoded_by :location
+  # after_validation :geocode
 end

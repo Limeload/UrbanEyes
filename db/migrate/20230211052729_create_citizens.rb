@@ -3,7 +3,7 @@ class CreateCitizens < ActiveRecord::Migration[7.0]
     create_table :citizens do |t|
       t.string :username
       t.string :email
-      t.string :password
+      t.string :password_digest
       t.bigint :city_id
 
       t.timestamps
