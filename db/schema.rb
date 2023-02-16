@@ -10,22 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_15_170916) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_12_184329) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "citizens", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password_digest"
-    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_170916) do
     t.string "status"
     t.bigint "city_id"
     t.bigint "service_id"
-    t.bigint "citizen_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,6 +45,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_170916) do
     t.string "name"
     t.text "description"
     t.string "category"
+    t.bigint "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
     t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

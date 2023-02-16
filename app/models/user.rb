@@ -1,4 +1,5 @@
-class Citizen < ApplicationRecord
+class User < ApplicationRecord
+  has_secure_password
   belongs_to :city
   has_many :service_requests
   validates :username, presence: true

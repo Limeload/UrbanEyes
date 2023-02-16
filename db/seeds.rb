@@ -1,12 +1,11 @@
 # Clear existing data
-Citizen.destroy_all
 ServiceRequest.destroy_all
 ServiceProvider.destroy_all
 Service.destroy_all
 
 puts "Seeding new users as Citizens..."
 city = City.find_or_create_by(name: 'Chicago', location: '41.8781,-87.6298')
-citizen_1 = Citizen.create!(email: "shraddharaom@gmail.com", username: "Shraddha", password: "12345678", city: city)
+user_1 = User.create!(email: "shraddharaom@gmail.com", username: "Shraddha", password: "12345678", city: city)
 
 puts "Seeding cities.."
 cities = [
@@ -80,7 +79,7 @@ ServiceProvider.create([
 puts "Seeding service requests..."
 cities = City.all
 services = Service.all
-citizens = Citizen.all
+users = User.all
 
   10.times do
     ServiceRequest.create!(
@@ -88,7 +87,7 @@ citizens = Citizen.all
       description: Faker::Lorem.paragraph,
       city: cities.sample,
       service: services.sample,
-      citizen: citizens.sample,
+      user: users.sample,
       status: Faker::Lorem.name
     )
   end

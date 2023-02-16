@@ -6,7 +6,7 @@ class CreateServiceRequests < ActiveRecord::Migration[7.0]
       t.string :status
       t.bigint :city_id
       t.bigint :service_id
-      t.bigint :citizen_id
+      t.bigint :user_id
 
       t.timestamps
     end
