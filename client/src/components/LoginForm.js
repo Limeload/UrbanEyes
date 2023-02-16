@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Button, Form} from 'react-bootstrap';
+import login from "../images/login.avif";
 
 function LoginForm ({ onLogIn}) {
     const [username, setUsername] = useState("")
@@ -24,8 +25,11 @@ function LoginForm ({ onLogIn}) {
     }
 
     return(
-        <div>
-            <h1>Log In</h1>
+        <div className="login-form">
+            <div className='form'>
+            <Link className='link' exact to='/'><h1>Urbaneyes</h1></Link>
+            <br />
+        <h1 className='text-1'>WELCOME BACK!</h1>
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
         <Form.Label>Username</Form.Label>
@@ -50,6 +54,10 @@ function LoginForm ({ onLogIn}) {
         <br />
         <div>
          Don't have an account yet? <Link exact to='/signup'>Sign up now!</Link>
+            </div>
+            </div>
+            <div className='image'>
+                <img src={login} alt={login} />
             </div>
         </div>
     )

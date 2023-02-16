@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Button, Form} from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import register from "../images/register.jpeg";
+
 
 function SignUpForm({ onLogIn }) {
 
@@ -28,7 +31,7 @@ function SignUpForm({ onLogIn }) {
                 if(res.ok) {
                     res.json()
                     .then(newUser => onLogIn(newUser))
-                    history.push('/')
+                    history.push('/dashboard')
                 }
             })
         setUsername("")
@@ -38,64 +41,62 @@ function SignUpForm({ onLogIn }) {
     }
 
     return (
+        <div className="login-form">
+            <div className='form'>
+            <Link className='link' exact to='/'><h1>Urbaneyes</h1></Link>
+            <br />
+        <h1 className='text-1'>Create an Account</h1>
+        <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3">
+        <Form.Label> Create Username</Form.Label>
+                <Form.Control
+                required
+                type="text"
+                id="username"
+                autoComplete="off"
+                value={username}
+                onChange= {(e) => setUsername(e.target.value)}/>
+        </Form.Group>
+        <Form.Group className="mb-3">
+        <Form.Label>Email</Form.Label>
+                <Form.Control
+                required
+                type="email"
+                placeholder="example@gmail.com"
+                id="email"
+                autoComplete="off"
+                value={email}
+                onChange= {(e) => setEmail(e.target.value)}/>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+               <Form.Label>Create Password</Form.Label>
+                <Form.Control
+                required
+                type="text"
+                id="password"
+                autoComplete="off"
+                value={password}
+                onChange= {(e) => setPassword(e.target.value)}/>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+               <Form.Label>Location</Form.Label>
+                <Form.Control
+                required
+                type="text"
+                name="location"
+                value={location}
+                onChange={e => setLocation(e.target.value)}/>
+        </Form.Group>
+        <Button type="submit">Create Account</Button>
+        </Form>
+        <br />
         <div>
-            <h1>Create an Account</h1>
-            <form onSubmit={handleSubmit}>
-                <div className='form-group row mx-5 my-2'>
-                    <label className='col-sm-2 col-form-label' htmlFor="name">Username</label>
-                    <div className='col-sm-8'>
-                        <input
-                            className='form-control'
-                            required
-                            type="text"
-                            name="name"
-                            value={username}
-                            onChange={e => setUsername(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <div className='form-group row mx-5 my-2'>
-                    <label className='col-sm-2 col-form-label' htmlFor="email">Email</label>
-                    <div className='col-sm-8'>
-                        <input
-                            className='form-control'
-                            required
-                            type="text"
-                            name="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <div className='form-group row mx-5 my-2'>
-                    <label className='col-sm-2 col-form-label' htmlFor="password">Password</label>
-                    <div className='col-sm-8'>
-                        <input
-                            className='form-control'
-                            required
-                            type="password"
-                            name="password"
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <div className='form-group row mx-5 my-2'>
-                    <label className='col-sm-2 col-form-label' htmlFor="location">Location</label>
-                    <div className='col-sm-8'>
-                        <input
-                            className='form-control'
-                            required
-                            type="text"
-                            name="location"
-                            value={location}
-                            onChange={e => setLocation(e.target.value)}
-                        />
-                    </div>
-                </div>
-
-                <button className='btn btn-secondary' type="submit">Create Account</button>
-            </form>
+       Already have an account? <Link exact to='/login'>Login instead</Link>
+            </div>
+            </div>
+            <div className='image'>
+                <img src={register} alt={register} />
+            </div>
         </div>
     )
 }

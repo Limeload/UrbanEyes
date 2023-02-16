@@ -39,7 +39,7 @@ function App() {
           <SignUpForm onLogIn={onLogIn}/>
         </Route>
         <Route path="/dashboard">
-          <Dashboard />
+         <Dashboard />
           </Route>
       </Switch>
     </BrowserRouter>

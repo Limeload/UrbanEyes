@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   post "/signup", to: "sessions#create"
-  post "/dashboard", to: "sessions#create"
   get "/me", to: "citizens#show"
   resources :service_requests, only: [:create, :index, :show, :update , :destroy]
   resources :service_providers, only: [:create, :index, :show, :update, :destroy]
