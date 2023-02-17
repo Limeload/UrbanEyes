@@ -1,9 +1,13 @@
 import React from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Services from './Services';
-import ServiceProvider from './ServiceProvider';
-import ServiceRequest from './ServiceRequest';
+// import RequestForm from './RequestForm';
+import UserRequests from './UserRequests';
+import smart_city from '../images/smartcity.png';
+import DropDown from './DropDown';
+// import Services from './Services';
+// import ServiceProvider from './ServiceProvider';
+// import ServiceRequest from './ServiceRequest';
 
 
 function Dashboard({currentUser, onLogOut}){
@@ -13,18 +17,19 @@ function Dashboard({currentUser, onLogOut}){
     })
         .then(() => onLogOut())
 }
-
   return (
-    <div className='login-form'>
-      <div className='form'>
-      <h1 className='text-1'>Welcome {currentUser.username}</h1>
+    <div className='dash-form'>
+      <div className='content'>
+      <h1 className='text-1'>Welcome <h3>{currentUser.username}</h3></h1>
+      <br />
       <Link to="/login" onClick={handleLogOut}><Button variant="warning">Log out</Button></Link>
-      </div>
-      <Container>
-      <Services />
-      <ServiceProvider />
-      <ServiceRequest />
-    </Container>
+      <UserRequests />
+     </div>
+     <div className='request-form'>
+     <img className='city' src={smart_city} alt={smart_city} />
+      {/* <RequestForm /> */}
+      <DropDown />
+     </div>
     </div>
   );
 };

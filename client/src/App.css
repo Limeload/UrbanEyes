@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Nunito:wght@800&display=swap');
-.landing-page{
+.landing-page {
   text-align: center;
   justify-content: center;
   font-family: 'Josefin Sans', sans-serif;
@@ -52,10 +52,39 @@ text-decoration: none;
 }
 
 .image {
-  margin-top: 5rem;
-  margin-left: 4rem;
+  margin-top: 6rem;
+  margin-left: 13rem;
 }
 
 .service{
   margin-top: 6rem;
 }
+
+.content {
+  margin-top: 2rem;
+  margin-left: 5rem;
+}
+
+.my-form{
+  margin-top: 3rem;
+}
+
+.dash-form{
+  display: flex;
+  margin-top: 1.5rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+.request-form {
+  margin-top: 2rem;
+  margin-left: 13rem;
+}
+
+.city{
+  width: 34rem;
+  height: auto;
+  display: absolute;
+}
+
+
