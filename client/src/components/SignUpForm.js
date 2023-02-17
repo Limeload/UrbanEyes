@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react'
 import { Button, Form} from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
@@ -9,7 +10,6 @@ function SignUpForm({ onLogIn }) {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [location, setLocation] = useState("")
     let history = useHistory()
 
     function handleSubmit(e) {
@@ -18,7 +18,6 @@ function SignUpForm({ onLogIn }) {
             username: username,
             email: email,
             password: password,
-            location: location,
         }
         fetch('/signup', {
             method: 'POST',
@@ -37,7 +36,6 @@ function SignUpForm({ onLogIn }) {
         setUsername("")
         setEmail("")
         setPassword("")
-        setLocation("")
     }
 
     return (
@@ -68,7 +66,7 @@ function SignUpForm({ onLogIn }) {
                 value={email}
                 onChange= {(e) => setEmail(e.target.value)}/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
                <Form.Label>Create Password</Form.Label>
                 <Form.Control
                 required
@@ -77,15 +75,6 @@ function SignUpForm({ onLogIn }) {
                 autoComplete="off"
                 value={password}
                 onChange= {(e) => setPassword(e.target.value)}/>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-               <Form.Label>Location</Form.Label>
-                <Form.Control
-                required
-                type="text"
-                name="location"
-                value={location}
-                onChange={e => setLocation(e.target.value)}/>
         </Form.Group>
         <Button type="submit">Create Account</Button>
         </Form>

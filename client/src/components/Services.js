@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import DropDown from './DropDown';
 
 function Services(){
   const [services, setServices] = useState([]);
@@ -14,7 +15,7 @@ function Services(){
       <h2>Services</h2>
       <ul>
         {services.map((service) => (
-          <li key={service.id}>{service.name}</li>
+          <DropDown service ={service} />
         ))}
       </ul>
     </div>

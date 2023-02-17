@@ -20,7 +20,7 @@ function LandingPage() {
         <Card.Body>
           <Card.Title>Our Services</Card.Title>
           <Card.Text>Smart City provides a range of services to make your city more livable, sustainable and efficient. From waste management to traffic control, we have got you covered.</Card.Text>
-          <Link to="/services"><Button variant="primary">View Services</Button></Link>
+          {/* <Link to="/services"><Button variant="primary">View Services</Button></Link> */}
         </Card.Body>
       </Card>
       <br />
@@ -29,7 +29,7 @@ function LandingPage() {
           <Card.Title>Our Vision</Card.Title>
           <Card.Text>Our vision is to create sustainable, efficient, and technologically advanced cities that make the lives of their citizens better.</Card.Text>
           <br />
-          <Link to="/about"><Button variant="primary">Learn More</Button></Link>
+          {/* <Link to="/about"><Button variant="primary">Learn More</Button></Link> */}
         </Card.Body>
       </Card>
       <br />

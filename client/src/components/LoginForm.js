@@ -40,7 +40,7 @@ function LoginForm ({ onLogIn}) {
                 value={username}
                 onChange= {(e) => setUsername(e.target.value)}/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
                <Form.Label htmlFor="password">Password</Form.Label>
                 <Form.Control
                 type="text"

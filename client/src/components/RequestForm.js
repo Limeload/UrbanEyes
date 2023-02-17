@@ -19,7 +19,7 @@ const RequestForm = () => {
   //   setSelectedCity(city);
   //   setSelectedService(null);
   // };
-  
+
   const handleServiceChange = (event) => {
     const serviceId = parseInt(event.target.value);
     const service = services.find((service) => service.id === serviceId);
@@ -44,11 +44,22 @@ const RequestForm = () => {
     console.log("Selected Service: ", selectedService);
     console.log("Selected Request: ", selectedRequest);
     console.log("Selected Provider: ", selectedProvider);
+    fetch('/requests')
+    .then((response) => {
+      console.log(response);
+      alert('Thank you for submitting your request. Your request has been accepted and our customer care team will reach out to you shortly');
+    })
+    .catch((error) => {
+      console.log(error);
+      alert('There was an error submitting your request. Please try again.');
+    });
+
     // you can add more code here to send the form data to the backend
   };
 
+
   return (
-    <Container>
+    <Container className="form">
       <Row>
         <Col>
           <Form onSubmit={handleSubmit}>

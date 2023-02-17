@@ -7,16 +7,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    user  = User.create!(user_params)
-    session[:user_id] = user.id
-    if user.save
-    render json: user, status: :created, location: user
-    else
-      render json: user.errors, status: :unprocessable_entity
+    user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: user, status: :created
   end
 
   def show
-    render json: @current_user
+    if params[:id]
+      render json: User.find(params[:id]), status: :ok
+  else
+      render json: @current_user, status: :ok
+  end
   end
 
   def update
@@ -24,6 +25,7 @@ class UsersController < ApplicationController
       render json: user
     else
       render json: user.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
