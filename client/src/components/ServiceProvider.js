@@ -5,13 +5,9 @@ function ServiceProvider(){
 
   useEffect(() => {
     fetch('/service_providers')
-      .then((response) => {
-        setServiceProviders(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+    .then(res => res.json())
+    .then(data => setServiceProviders(data))
+ }, [])
 
   return (
     <div>

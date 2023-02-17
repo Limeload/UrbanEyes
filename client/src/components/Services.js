@@ -5,13 +5,9 @@ function Services(){
 
   useEffect(() => {
    fetch('/services')
-      .then((response) => {
-        setServices(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+   .then(res => res.json())
+   .then(data => setServices(data))
+}, [])
 
   return (
     <div>

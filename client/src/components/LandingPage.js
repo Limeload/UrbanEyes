@@ -4,13 +4,8 @@ import { Button, Card , CardGroup} from 'react-bootstrap';
 import '../App.css'
 import cover from '../images/cover.png';
 
-function LandingPage({currentUser, onLogOut}) {
-  function handleLogOut() {
-    fetch('/logout', {
-        method: 'DELETE'
-    })
-        .then(() => onLogOut())
-}
+function LandingPage() {
+
   return (
     <div className="landing-page">
       <div className="landing-page-header">
@@ -43,14 +38,7 @@ function LandingPage({currentUser, onLogOut}) {
           <Card.Title>Our Community</Card.Title>
           <Card.Text>Join our community of citizens, service providers and city officials to create a better future for our cities. Sign up and start making a difference today.</Card.Text>
           <br />
-          { currentUser ?
-                            <>
-                                <Link to="/login" onClick={handleLogOut}><Button variant="primary">Log out</Button></Link>
-                            </>
-                            :
-                                <Link to="/login"><Button variant="warning">Log in / Register</Button></Link>
-                        }
-                { currentUser ? <Button variant="info">Signed in as {currentUser.username}</Button> : null }
+        <Link to="/login"><Button variant="warning">Log in / Register</Button></Link>
         </Card.Body>
       </Card>
       </CardGroup>

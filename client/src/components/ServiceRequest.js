@@ -5,13 +5,9 @@ function ServiceRequest(){
 
   useEffect(() => {
    fetch('/service_requests')
-      .then((response) => {
-        setServiceRequests(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+   .then(res => res.json())
+   .then(data => setServiceRequests(data))
+}, [])
 
   return (
     <div>

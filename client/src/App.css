@@ -47,7 +47,6 @@ text-decoration: none;
   margin-top: 2rem;
 }
 
-
 .p {
   font-size: 8px;
 }
@@ -55,4 +54,8 @@ text-decoration: none;
 .image {
   margin-top: 5rem;
   margin-left: 4rem;
+}
+
+.service{
+  margin-top: 6rem;
 }

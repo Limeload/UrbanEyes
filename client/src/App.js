@@ -30,7 +30,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <LandingPage currentUser={currentUser} onLogOut={onLogOut} />
+          <LandingPage />
         </Route>
         <Route path="/login">
           <LoginForm onLogIn={onLogIn} />
@@ -39,7 +39,7 @@ function App() {
           <SignUpForm onLogIn={onLogIn}/>
         </Route>
         <Route path="/dashboard">
-         <Dashboard />
+         <Dashboard currentUser={currentUser} onLogOut={onLogOut} />
           </Route>
       </Switch>
     </BrowserRouter>
